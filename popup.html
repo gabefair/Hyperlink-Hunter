@@ -1,0 +1,43 @@
+<!--Popup.html-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>URL Extractor</title>
+    <style>
+        body { font-family: Arial, sans-serif; width: 300px; padding: 10px; }
+        .tab { display: none; }
+        .tab.active { display: block; }
+        ul { padding: 0; }
+        li { list-style: none; margin-bottom: 5px; }
+    </style>
+</head>
+<body>
+    <h1>URL Extractor</h1>
+    <div>
+        <button id="tabUrls">URLs</button>
+        <button id="tabSettings">Settings</button>
+        <button id="tabSaved">Saved Results</button>
+        <button id="tabAbout">About</button>
+        <button id="tabHistory">History</button>
+    </div>
+    <div id="urlsTab" class="tab">
+        <ul id="urlList"></ul>
+        <button id="exportCsv">Export as CSV</button>
+    </div>
+    <div id="settingsTab" class="tab">
+        <label><input type="checkbox" id="tfidfSort"> Sort URLs by TF-IDF</label>
+    </div>
+    <div id="savedTab" class="tab">
+        <ul id="savedList"></ul>
+    </div>
+    <div id="aboutTab" class="tab">
+        <p>About Hyperlink Hunter</p>
+        <p><a href="https://chrome.google.com/webstore/detail/hyperlink-hunter" target="_blank">Chrome Web Store</a></p>
+        <p><a href="https://github.com/yourusername/hyperlink-hunter" target="_blank">GitHub Repository</a></p>
+    </div>
+    <div id="historyTab" class="tab">
+        <ul id="historyList"></ul>
+    </div>
+    <script src="popup.js"></script>
+</body>
+</html>
