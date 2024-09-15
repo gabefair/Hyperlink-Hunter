@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<!-- popup.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hyperlink Hunter</title>
+    <link rel="stylesheet" href="libs/DataTables/dataTables.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 10px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            min-width: 500px; 
+            min-height: 500px; 
+        }
+        .tab {
+            display: none;
+        }
+        .tab.active {
+            display: block;
+        }
+        .tab-navigation {
+            display: flex;
+            gap: 10px;
+            margin-bottom: 10px;
+        }
+        .table-wrapper {
+            overflow: auto;
+            flex-grow: 1;
+        }
+        .actions-button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 15px;
+        }
+        .url-cell {
+            max-width: 400px; /* Adjust this value as needed */
+            word-wrap: break-word;
+            word-break: break-all;
+            overflow-wrap: break-word;
+            white-space: normal; /* Allows text to wrap */
+        }
+    </style>
+</head>
+<body>
+    <h1>Hyperlink Hunter</h1>
+    <div class="tab-navigation">
+        <button data-tab="urlsTab">URLs</button>
+        <button data-tab="settingsTab">Settings</button>
+        <button data-tab="savedTab">Saved Results</button>
+        <button data-tab="aboutTab">About</button>
+    </div>
+    
+    <div id="urlsTab" class="tab active">
+        <div class="table-wrapper">
+            <table id="url-table" class="display">
+                <thead>
+                    <tr>
+                        <th><input type="checkbox" id="selectAll"></th>
+                        <th>URL</th>
+                        <th>Count</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="actions-button-group">
+            <button id="exportCsv">Export as CSV</button>
+            <button id="archiveUrls">Archive URLs</button>
+        </div>
+    </div>
+
+    <div id="settingsTab" class="tab">
+        <label><input type="checkbox" id="tfidfSort"> Sort URLs by TF-IDF</label><br>
+        <label><input type="checkbox" id="sameDomain"> Show only same domain URLs</label><br>
+        <label><input type="checkbox" id="externalUrls"> Show only external URLs</label>
+    </div>
+
+    <div id="savedTab" class="tab">
+        <p>Saved Results feature coming soon.</p>
+    </div>
+
+    <div id="aboutTab" class="tab">
+        <p>About Hyperlink Hunter</p>
+        <p><a href="https://chrome.google.com/webstore/detail/hyperlink-hunter" target="_blank">Chrome Web Store</a></p>
+        <p><a href="https://github.com/gabefair/hyperlink-hunter" target="_blank">GitHub Repository</a></p>
+    </div>
+
+    <!-- Include scripts at the end for better loading performance -->
+    <script src="libs/jquery-3.7.1.min.js"></script>
+    <script src="libs/DataTables/dataTables.min.js"></script>
+    <script src="popup.js"></script>
+</body>
+</html>
